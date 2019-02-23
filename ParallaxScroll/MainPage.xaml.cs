@@ -115,8 +115,7 @@ namespace ParallaxScroll
                                       double speed)
         {
             var newPosition = startPosition + scrollY * speed;
-            if (newPosition > minPosition && newPosition < maxPosition)
-                control.TranslationY = newPosition;
+            control.TranslationY = Math.Max(Math.Min(maxPosition, newPosition), -Math.Abs(minPosition));
         }
     }
 }
